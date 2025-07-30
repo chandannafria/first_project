@@ -1,9 +1,12 @@
-print("end to end project ")
-a=1
-c=4
-print(c+a)
+from src.exception import CustomException
+from src.logger import logging
+from src.utils import save_object
+import os
+import dill
+import sys
 
 
-print("Hello, this is my ML project!")
-
-print("chandan nafria")
+try:
+    a = 1 / 0
+except Exception as e:
+    raise CustomException(str(e), sys)

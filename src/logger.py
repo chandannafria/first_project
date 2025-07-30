@@ -1,9 +1,7 @@
 import logging
 import os
 from datetime import datetime
-import logging
-import os
-from datetime import datetime
+from src.exception import CustomException
 
 # Step 1: Create a logs directory
 LOG_DIR = "logs"
@@ -24,18 +22,11 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-
-# # Log file name with timestamp
-# log_file = f"log_{datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log"
-# log_path = os.path.join(os.getcwd(),"logs", log_file)
-# os.makedirs(log_path, exist_ok=True)
-
-# log_file_path  = os.path.join(log_path , log_file)
-# # Configure logging
-# logging.basicConfig(
-#     filename=log_file_path,
-#     level=logging.INFO,
-#     format='[%(asctime)s] %(levelname)s: %(message)s'
-# )
-
-# # logger = logging.getLogger(__name__)
+from src.utils import save_object
+def log_exception(e, error_detail):
+    """
+    Log the exception details.
+    """
+    logger.error(f"Exception occurred: {e}")
+    logger.error(f"Error details: {error_detail}")
+    raise CustomException(e, error_detail)
