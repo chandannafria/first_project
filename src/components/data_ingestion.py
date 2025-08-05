@@ -57,4 +57,5 @@ if __name__ == "main":
     modeltrainer = ModelTrainer()
     preprocessor_path = DataTransformationconfig().preprocessor_obj_file_path
     print(modeltrainer.initiate_model_trainer(train_arr, test_arr, preprocessor_path))
+    # print(modeltrainer.initiate_model_trainer(train_arr, test_arr, preprocessor_path))
     
